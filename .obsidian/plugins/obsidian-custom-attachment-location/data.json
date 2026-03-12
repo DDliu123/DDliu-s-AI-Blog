@@ -1,10 +1,10 @@
 {
   "attachmentFolderPath": "./assets/${noteFileName}",
-  "attachmentRenameMode": "All",
+  "attachmentRenameMode": "Only pasted images",
   "collectAttachmentUsedByMultipleNotesMode": "Skip",
   "collectedAttachmentFileName": "",
   "convertImagesToJpegMode": "None",
-  "customTokensStr": "registerCustomToken('foo', (ctx) => {\n  const formatValue = ctx.format?.formatKey ?? 'defaultFormatValue';\n  return ctx.noteFileName + ctx.app.appId + formatValue + ctx.obsidian.apiVersion;\n});\n\nregisterCustomToken('bar', async (ctx) => {\n  await sleep(100);\n  const formatValue = ctx.format?.formatKey ?? 'defaultFormatValue';\n  const filledTemplate = await ctx.fillTemplate('qux \\${quux} corge \\${grault:{garply:\\'waldo\\'}} fred');\n  return ctx.noteFileName + ctx.app.appId + formatValue + ctx.obsidian.apiVersion + filledTemplate;\n});",
+  "customTokensStr": "",
   "defaultImageSize": "",
   "defaultImageSizeDimension": "width",
   "duplicateNameSeparator": " ",
