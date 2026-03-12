@@ -2,5 +2,6 @@
   "promptDelete": false,
   "useMarkdownLinks": false,
   "newLinkFormat": "relative",
-  "uriCallbacks": true
+  "uriCallbacks": true,
+  "attachmentFolderPath": "Pictures"
 }
