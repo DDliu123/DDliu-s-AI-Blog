@@ -148,7 +148,8 @@ Claude 判断是否需调用某 Skill（基于请求内容匹配已加载的 s
 Claude 依照 SKILL.md 中定义的流程执行任务
 ↓
 在执行过程中，按需通过 Function Calling：  
-	• 调用 bash 执行附带脚本  • 调用 read_file 读取所需资源文件
+	• 调用 bash 执行附带脚本  
+	• 调用 read_file 读取所需资源文件
 ↓
 整合执行结果
 ```
