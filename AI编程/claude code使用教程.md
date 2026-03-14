@@ -12,3 +12,9 @@ CLAUDE.md文件有两个主要用徐：
 - 引导Claude浏览你的代码库，指出重要命令、架构和编码风格
 - 允许你给Claude特定或自定义的指令
 这个文件会包，含在你向Claude发出的每个请求中，所以它就像是你项目的特久系统提示。
+
+Claude识别三个不同位置的三个不同CLAUDE.md文件：
+- CLAUDE.md-用/init生成，提交到源代码控制，与其他工程师共享
+- CLAUDE.local.md-不与其他工程师共享，包含个人指令和对Claude的自定义
+- ~/.claude/CLAUDE.md-用于你机器上的所有项目，包含你希望Claude在所有项目中遵循的指令
+- 
