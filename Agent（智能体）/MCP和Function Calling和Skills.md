@@ -1,29 +1,4 @@
-作为 Lynxe(原JManus）的作者，我花费了很多课余时间来完善这个Func-Agent框架，也因此对于什么是ReAct Based Agent 有了更深一些的理解。
 
-所以想把这些内容总结出来，是因为这个项目本身核心目的就是探索Agent的前沿最佳实践，目前已经有所小成，Lynxe能解决我自己面对的80%以上的问题了，所以我觉得值得把我实验下来有效的东西写出来，方便大家快速入门。
-
-你可以访问 Lynxe(菱科斯)阅读详细源码来学习agent的一些最佳实践。这是一个非常完善的产品级的 Func-Agent框架。
-
-https://github.com/spring-ai-alibaba/Lynxe
-
-## 系列计划
-
-- [AI Agent系列｜什么是 ReAct Agent？](https://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&mid=2247558441&idx=1&sn=f856bc1bf23341b6c7e1cf249d0f522e&scene=21#wechat_redirect)
-    
-
-- [AI Agent系列｜深入了解智能体工作流核心：Agent vs 传统编程 vs Workflow 的本质区别](https://mp.weixin.qq.com/s?__biz=MzIzOTU0NTQ0MA==&mid=2247558448&idx=1&sn=c8e6b35103ed82f7e4689c8b5f910c68&scene=21#wechat_redirect)
-    
-
-- 深入解析Function Calling、MCP和Skills的本质差异与最佳实践 (本篇)
-    
-
-- 上下文管理的一些实践
-    
-
-- 并行执行的最佳实践与我走过的弯路
-    
-
-在前面的文章中，我们介绍了什么是 ReAct Agent，以及 Agent 与传统编程、Workflow 的本质区别。
 
 现在我们来聊聊一个大家广为谈论的话题：AI Agent 的工具能力是什么？Function Calling、MCP 和 Skills 这三者有什么区别？它们背后的核心原理是什么？
 
