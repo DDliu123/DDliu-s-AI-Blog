@@ -17,4 +17,24 @@ Claude识别三个不同位置的三个不同CLAUDE.md文件：
 - CLAUDE.md-用/init生成，提交到源代码控制，与其他工程师共享
 - CLAUDE.local.md-不与其他工程师共享，包含个人指令和对Claude的自定义
 - ~/.claude/CLAUDE.md-用于你机器上的所有项目，包含你希望Claude在所有项目中遵循的指令
-- 
+
+## 添加自定义指令
+你可以通过向CLAUDE.md文件添加指令来自定义Claude的行为。例如，如果Claude在代码中添加了太多注释，你可以通过更新文件来解决这个问题。使用#命令进入"记忆模式”一这让你可以智能地编辑你的CLAUDE.md文件。只需输入类似这样的内容：
+```
+# Use comments sparingly. Only comment complex code.
+```
+## 使用'@'提及文件
+当你需要Claude查看特定文件时，使用@符号后跟文件路径。这会自动将该文件的内容包含在你向Claude的请求中。
+例如，如果你想询问你的身份验证系统并且你知道相关文件，你可以输入：
+```
+How does the auth system work? @auth
+```
+## 在CLAUDE.md中引用文件
+你也可以使用相同的@语法直接在你的CLAUDE.md文件中提及文件。这对于与项目许多方面相关的文件特别有
+用。
+例如，如果你有一个定义数据结构的数据库模式文件，你可以将其添加到你的CLAUDE.md中：
+
+
+
+
+
