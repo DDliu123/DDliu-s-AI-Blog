@@ -64,6 +64,11 @@ Dify 采用模块化的微服务架构，各功能组件可独立部署、水平
 
 ### 一、模型管理
 
+核心架构：
+[[../dify_model_management_architecture.svg]]
+
+
+
 现在市面上大模型几乎都适配OpenAI的API协议（已在事实上成为行业标准）。
 
 **API请求的三个核心部分**
