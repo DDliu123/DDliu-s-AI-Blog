@@ -67,16 +67,12 @@ Dify 采用模块化的微服务架构，各功能组件可独立部署、水平
 核心架构：
 [[../dify_model_management_architecture.svg]]
 
+### 一、核心设计思想：Provider + Model 二层插件体系
 
+Dify 把模型管理拆成两个层次：**供应商（Provider）** 管资质和凭据，**模型（Model）** 管具体的调用行为。这个分离让系统非常灵活——同一个供应商可以挂载几十个不同能力的模型，而凭据只需配置一次。
 
-现在市面上大模型几乎都适配OpenAI的API协议（已在事实上成为行业标准）。
+供应商支持三种模型配置方式：预定义模型（predefined-model），用户只需配置统一的供应商凭据即可使用供应商下的预定义模型；自定义模型（customizable-model），用户需要为每个模型单独配置凭据，如 Xinference，它同时支持 LLM 和 Text Embedding，但每个模型都有唯一的 model_uid，需要分别配置；从远程获取（fetch-from-remote），只需配置统一供应商凭据，模型列表通过凭据信息从供应商远程拉取，如 OpenAI 的微调模型，配置一个 api_key 即可让 Dify Runtime 获取到开发者所有的微调模型。这三种方式支持共存。
 
-**API请求的三个核心部分**
-
-- **URL（端点）**：固定路径 `/v1/chat/completions`，这是所有厂商兼容的关键——路径一样，只换域名前缀（`base_url`）
-- **Headers**：告诉服务器"我是谁、我要发什么格式"。`Authorization: Bearer sk-xxx` 就是身份凭证，也就是 API Key
-- **Body**：JSON 格式，核心是 `messages` 数组，按 `role`（system / user / assistant）顺序排列整个对话历史
-- ![[../Pictures/Pasted image 20260315153229.png]]
 
 
 # 02 工具管理
