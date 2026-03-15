@@ -72,9 +72,6 @@ Dify 采用模块化的微服务架构，各功能组件可独立部署、水平
 - **Headers**：告诉服务器"我是谁、我要发什么格式"。`Authorization: Bearer sk-xxx` 就是身份凭证，也就是 API Key
 - **Body**：JSON 格式，核心是 `messages` 数组，按 `role`（system / user / assistant）顺序排列整个对话历史
 - ![[../Pictures/Pasted image 20260315153229.png]]
-![[../Pictures/Pasted image 20260315151747.png]]
-
-![[../Pictures/Pasted image 20260315152246.png]]
 
 
 # 02 工具管理
