@@ -3,8 +3,21 @@
   "title": "你好",
   "titleGenerationStatus": "failed",
   "createdAt": 1773892144367,
-  "updatedAt": 1773896003751,
-  "lastResponseAt": 1773896003751,
-  "sessionId": null,
-  "currentNote": "开源AI项目拆解/OpenClaw拆解.md"
+  "updatedAt": 1773896286323,
+  "lastResponseAt": 1773896286323,
+  "sessionId": "99a91219-af85-4356-a9fa-17ad023ef10b",
+  "sdkSessionId": "99a91219-af85-4356-a9fa-17ad023ef10b",
+  "previousSdkSessionIds": [
+    "298561ab-7c60-41cf-8686-51aabbf31688"
+  ],
+  "currentNote": "开源AI项目拆解/OpenClaw拆解.md",
+  "usage": {
+    "model": "kimi-k2-turbo-preview",
+    "inputTokens": 24016,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 24016,
+    "percentage": 12
+  }
 }

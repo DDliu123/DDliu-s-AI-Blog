@@ -5,7 +5,7 @@
   "createdAt": 1773622889007,
   "updatedAt": 1773892139292,
   "lastResponseAt": 1773623848369,
-  "sessionId": "7c8643af-76a9-433a-8a28-6eba92e51451",
+  "sessionId": null,
   "sdkSessionId": "7c8643af-76a9-433a-8a28-6eba92e51451",
   "usage": {
     "model": "kimi-k2-turbo-preview",

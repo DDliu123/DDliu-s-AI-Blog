@@ -65,7 +65,7 @@
   "locale": "zh-CN",
   "claudeCliPath": "",
   "claudeCliPathsByHost": {
-    "LAPTOP-LFM8P00S": "C:\\Users\\DDliu\\.trae\\extensions\\anthropic.claude-code-2.1.76-win32-x64\\resources\\native-binary\\claude.exe"
+    "LAPTOP-LFM8P00S": "C:\\Users\\DDliu\\.trae\\extensions\\anthropic.claude-code-2.1.78-win32-x64\\resources\\native-binary\\claude.exe"
   },
   "loadUserClaudeSettings": true,
   "lastClaudeModel": "haiku",
