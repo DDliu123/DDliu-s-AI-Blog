@@ -17,3 +17,4 @@ pip install dotenv
 DEEPSEEK_API_KEY="sk-1fd1f70b01844e949c604da912fb35dd"
 DEEPSEEK_BASE_URL="https://api.deepseek.com/v1"
 pip install 'langchain[openai]' dotenv
+
