@@ -252,3 +252,4 @@ touch your-project/backend/CLAUDE.md
 ```
 
 这样就形成了一个清晰的分层结构：个人偏好统一维护在全局文件里，项目规则只写项目独有的内容。
+
