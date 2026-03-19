@@ -8,3 +8,6 @@ charismatic-web-490701-i8
 
 
 `set https_proxy="http://127.0.0.1:7890";set GOOGLE_CLOUD_PROJECT="charismatic-web-490701-i8";gemini`
+
+nvm node_mirror https://npmmirror.com/mirrors/node/
+nvm npm_mirror https://npmmirror.com/mirrors/npm/
