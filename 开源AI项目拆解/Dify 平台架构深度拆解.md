@@ -1,4 +1,3 @@
-# Dify 平台架构深度拆解
 
 > **项目地址：** <https://github.com/langgenius/dify>
 >
