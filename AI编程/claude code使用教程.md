@@ -1,255 +1,432 @@
-# 添加上下文
-在使用Claude处理编码项目时，上下文管理至关重要。你的项目可能有几十甚至几百个文件，但Claude只需要正确的信息就能有效地帮助你。过多不相关的上下文实际上会降低Claude的性能，因此学会引导它找到相关文件和文档是必不可少的。
-## /init命令
-当你第一次在新项目中启动Claude时，运行/init命令。这会告诉Claude分析你的整个代码库并理解
-- 项目的目的和架构
-- 重要命令和关键文件
-- 编码模式和结构
-分析完你的代码后，Claude会创建一个摘要并将其写入CLAUDE.md文件。当Claude请求创建此文件的权限时，你可以按Enter键批准每个写入操作，或者按Shift+Tab让Claude在整个会话期间自由写入文件。
 
-## CLAUDE.md文件
-CLAUDE.md文件有两个主要用徐：
-- 引导Claude浏览你的代码库，指出重要命令、架构和编码风格
-- 允许你给Claude特定或自定义的指令
-这个文件会包，含在你向Claude发出的每个请求中，所以它就像是你项目的特久系统提示。
-
-Claude识别三个不同位置的三个不同CLAUDE.md文件：
-- CLAUDE.md-用/init生成，提交到源代码控制，与其他工程师共享
-- CLAUDE.local.md-不与其他工程师共享，包含个人指令和对Claude的自定义
-- ~/.claude/CLAUDE.md-用于你机器上的所有项目，包含你希望Claude在所有项目中遵循的指令
-
-## 添加自定义指令
-你可以通过向CLAUDE.md文件添加指令来自定义Claude的行为。例如，如果Claude在代码中添加了太多注释，你可以通过更新文件来解决这个问题。使用#命令进入"记忆模式”一这让你可以智能地编辑你的CLAUDE.md文件。只需输入类似这样的内容：
-```
-# Use comments sparingly. Only comment complex code.
-```
-## 使用'@'提及文件
-当你需要Claude查看特定文件时，使用@符号后跟文件路径。这会自动将该文件的内容包含在你向Claude的请求中。
-例如，如果你想询问你的身份验证系统并且你知道相关文件，你可以输入：
-```
-How does the auth system work? @auth
-```
-## 在CLAUDE.md中引用文件
-你也可以使用相同的@语法直接在你的CLAUDE.md文件中提及文件。这对于与项目许多方面相关的文件特别有用。
-例如，如果你有一个定义数据结构的数据库模式文件，你可以将其添加到你的CLAUDE.md中：
-``` markdown
-数据库架构定义在 `@prisma/schema.prisma` 文件中。每当你需要了解数据库中存储的数据结构时，都可以参考此文件。
-```
-
-当你以这种方式提及文件时，它的内容会自动包含在每个请求中，所以Claude可以立即回答关于你数据结构的问
-题，而无需每次都搜索和读取模式文件。
-
-
-
-
+> 官方文档：https://code.claude.com/docs/en/overview
 
 ---
 
-## 🧠 核心理念：管理上下文窗口是第一要务
+## 一、什么是 Claude Code
 
-Claude Code 最重要的资源是上下文窗口。整个对话历史——包括每条消息、读取的文件、命令输出——都会占用上下文。当上下文接近上限时，模型性能会明显下降，Claude 可能开始"遗忘"早期指令或犯更多错误。
+Claude Code 是 Anthropic 推出的**终端原生 AI 编程代理**，通过自然语言与你对话，直接读写代码、执行命令、管理 Git，覆盖整个开发工作流。
 
----
+**核心能力：**
 
-## 📁 一、配置 CLAUDE.md（项目记忆文件）
-
-CLAUDE.md 是默认会进入每次对话的唯一文件。它需要告诉 Claude 三件事：**WHAT**（技术栈和项目结构）、**WHY**（项目目的和各模块功能）、**HOW**（如何在项目中工作，例如用 bun 还是 node，如何跑测试）。
-
-**写 CLAUDE.md 的关键原则：**
-
-- 研究表明，前沿思考型 LLM 能可靠遵循约 150-200 条指令。Claude Code 系统提示本身已包含约 50 条指令，因此你的 CLAUDE.md 应尽量精简，只放普遍适用的核心规则。
-- 不要在 CLAUDE.md 里直接 @-file 文档（会每次嵌入整个文件撑爆上下文），而是提示 Claude 在需要时去读它，例如："遇到 FooBarError 时，参见 path/to/docs.md"。
-- 避免只写"禁止"类约束，如"永远不要用 --foo-bar"。这会让 agent 卡住。应始终提供替代方案。
-- 在子目录（如 /frontend 或 /backend）中创建额外的 CLAUDE.md，给 Claude 更聚焦的上下文。
+- 跨多文件理解和修改代码
+- 写测试、修 lint、解 merge conflict、写 release notes
+- 用自然语言描述需求 → 自动规划 + 多文件实现 + 验证
+- 粘贴报错信息 → 溯源 + 定位根因 + 修复
+- 原生操作 Git（暂存、提交、建分支、开 PR）
 
 ---
 
-## ✍️ 二、写出高质量的 Prompt
+## 二、安装与启动
 
-有效的 prompt 遵循 **CIF 结构：Context（上下文）、Intent（意图）、Format（输出格式）**。Claude Code 不会猜测你的目标，你必须明确说明。
+### 安装方式
 
-**实用技巧：**
+|平台|命令|
+|---|---|
+|macOS (Native)|官网下载，自动后台更新|
+|macOS (Homebrew)|`brew install claude-code`（需手动 `brew upgrade claude-code`）|
+|Windows (WinGet)|`winget install Anthropic.ClaudeCode`（需手动升级）|
+|Windows|需先安装 Git for Windows|
 
-- 直接引用文件路径；提供 URL 让 Claude 自行读取文档或 Issue；拖入截图或设计稿以提供视觉上下文；明确指定边界条件。
-- 参考具体示例文件，例如："按照 components/UserCard.tsx 的模式创建新组件"——一个具体例子胜过百字说明。
-- 在提示词中加入 `ultrathink` 关键词可触发高强度推理模式。
+> ⚠️ npm 安装方式已废弃，请用官方推荐方式。
 
----
-
-## 🗂️ 三、上下文管理策略
-
-**频繁清理上下文：**
-
-- 使用 `/clear` 的建议：每次开始新任务都清空对话。旧历史会消耗 token，还会触发 Claude 的压缩调用，进一步浪费上下文。
-- 在上下文使用率达到 50% 前手动执行 `/compact`，避免进入"agent 迟钝区"。
-- 使用 `/context` 查看当前上下文占用，用 `/usage` 查看计划用量。
-
----
-
-## 📐 四、先规划，再编码
-
-Plan Mode 通过按两次 **Shift+Tab** 激活。在此模式下，Claude 成为研究和分析机器，无法修改任何文件——相当于"架构师模式"，只能观察、分析和规划，直到你批准才会执行。
-
-规划优先是不可妥协的原则：每个高质量来源都强调，在编码前进行预先规划。"直觉编码"适合快速验证原型，但生产代码需要结构化思考、验证和文档。
-
----
-
-## ⚡ 五、实用操作技巧
-
-几个容易忽视的操作细节：
-
-- **停止 Claude**：用 Escape，不是 Ctrl+C（后者会直接退出）
-- **引用文件**：拖入时按住 Shift，否则会在新标签页打开
-- **粘贴图片**：用 Ctrl+V，而非 Cmd+V
-- **跳转历史消息**：按两次 Escape 显示历史消息列表
-
----
-
-## 🔄 六、权限与自动化
-
-- 运行 `claude --dangerously-skip-permissions` 可跳过每次操作的权限确认，类似 Cursor 的 "yolo 模式"，大幅提升自动化流畅度。
-- 使用 `/install-github-app` 让 Claude 自动审查 PR，它尤其擅长发现逻辑错误和安全问题（而非纠结变量命名）。记得自定义审查 prompt，默认配置过于冗长。
-
----
-
-## 🔧 七、Git 与代码质量
-
-- 让 Claude 在完成每个任务步骤后就提交 commit，养成小步提交的习惯。
-- 在 prompt 中附上测试用例、截图或预期输出，让 Claude 能自我验证——这是单一最高杠杆率的操作。
-- 对 AI 生成的代码保持人工审查：AI 生成的代码表面上往往"能跑"，但可能包含微妙的 bug，测试是唯一可靠的验证机制。
-
----
-
-## 🚀 八、进阶：并行与子 Agent
-
-- 在 IDE 中打开多个 Claude Code 实例并行工作，前提是各实例处理代码库的不同部分。
-- 在 prompt 中说 `use subagents` 可以让 Claude 将子任务分发给子 Agent，保持主上下文干净。
-
----
-
-**一句话总结**：Claude Code 的使用上限取决于你对上下文的管理精度、prompt 的结构化程度，以及是否养成了"先规划再执行"的工作习惯。
-
-
----
-
-CLAUDE.md 支持**多个位置**，采用分级加载机制，优先级由高到低：
-
----
-
-### 📍 三个主要存放位置
-
-**1. 项目根目录（最常用）**
-
-```
-your-project/
-└── CLAUDE.md   ← 放这里，团队共享
-```
-
-这是最常见的位置，应该提交到 Git，用于与整个团队共享项目特定的指令、命令和代码风格规范。
-
-**2. 用户主目录（全局个人设置）**
-
-```
-~/.claude/CLAUDE.md
-```
-
-位于 home 目录，对你所有项目生效，适合存放个人偏好、编码风格或到处都用的自定义工具快捷方式。
-
-**3. 子目录（分模块精细控制）**
-
-```
-your-project/
-├── CLAUDE.md
-├── frontend/
-│   └── CLAUDE.md   ← 仅前端相关指令
-└── backend/
-    └── CLAUDE.md   ← 仅后端相关指令
-```
-
-还可以用 `.claude/rules/` 目录将指令拆分成多个文件，并支持按文件路径作用域加载，只有 Claude 打开匹配文件时才会加载对应规则，节省上下文空间。
-
----
-
-### 🔢 加载优先级
-
-优先级顺序为：`.claude/settings.local.json` > 项目 `CLAUDE.md` > 全局 `~/.claude/CLAUDE.md`。
-
-Claude Code 启动时会从当前工作目录**递归向上**查找所有层级的 CLAUDE.md，并自动合并加载。
-
----
-
-### ⚡ 快速创建
-
-最简单的方式是在项目目录下运行：
+### 启动
 
 ```bash
-/init
+cd your-project
+claude
 ```
 
-Claude 会分析你的代码库，自动生成一个基础的 CLAUDE.md 文件，建议将其提交到版本控制。
-
-这是个很好的问题！简单来说，**这两个位置的 CLAUDE.md 都需要手动创建**，没有专门的自动生成命令。这两种 CLAUDE.md **都需要手动创建**，没有专用命令自动生成，但方法很简单：
+首次运行会提示登录。需要 Claude Pro / Max / Teams / Enterprise 订阅或 API 账号。
 
 ---
 
-### 🌐 用户主目录（`~/.claude/CLAUDE.md`）
+## 三、使用界面（多端同一引擎）
 
-直接用任意文本编辑器或命令行创建即可：
+|界面|特点|
+|---|---|
+|**终端 CLI**|完整功能，直接在终端运行|
+|**VS Code 扩展**|inline diff、@mention、计划审查、对话历史|
+|**JetBrains 插件**|适用于 IDEA / PyCharm / WebStorm|
+|**桌面 App**|可视化 diff、多 session 并排、定时任务|
+|**Web 版**|浏览器内运行，无需本地安装，支持长任务|
+|**GitHub Actions / GitLab CI**|CI/CD 集成，自动 code review|
+|**Slack**|在 Slack 频道中 @claude|
 
-```bash
-# 方式一：用命令行创建并编辑
-mkdir -p ~/.claude
-nano ~/.claude/CLAUDE.md
+所有界面共用同一份 CLAUDE.md、settings.json 和 MCP 配置。
 
-# 方式二：用 VS Code 打开编辑
-code ~/.claude/CLAUDE.md
+---
+
+## 四、核心工作原理（Agentic Loop）
+
+Claude Code 接到任务后分三阶段循环执行：
+
+```
+1. 收集上下文（搜索文件、读代码、理解结构）
+   ↓
+2. 执行动作（编辑文件、运行命令、调用工具）
+   ↓
+3. 验证结果（运行测试、检查输出、确认正确）
+   ↓ 循环直到完成
 ```
 
-这个全局目录 `~/.claude/` 是 Claude Code 自动维护的系统级目录，里面存放跨所有项目生效的全局设置。`CLAUDE.md` 就放在其中，适合写你的个人编码偏好、惯用工具和习惯。
+**启动时 Claude 可访问的内容：**
 
-写什么内容？典型示例：
+- 当前目录及子目录的所有文件
+- 终端（任何可执行命令：构建工具、git、包管理器等）
+- Git 状态（当前分支、未提交变更、历史记录）
+- CLAUDE.md 文件（你写的项目上下文）
+- Auto Memory（自动保存的学习记录，前 200 行自动加载）
+
+---
+
+## 五、持久化记忆：CLAUDE.md
+
+CLAUDE.md 是放在项目根目录的 Markdown 文件，Claude 每次会话都会读取。
+
+**用来写什么：**
+
+- Bash 构建命令（`npm run dev`、`make test` 等）
+- 代码风格约定
+- 架构决策
+- 禁止做的事
+- 审查 checklist
+
+**快速生成：**
+
+```bash
+/init   # 自动分析项目结构生成初始 CLAUDE.md
+```
+
+**加载规则：**
+
+- 工作目录及父目录的 CLAUDE.md 在启动时加载
+- 子目录的 CLAUDE.md 在进入该目录时加载
+- 指令冲突时，越具体的优先级越高
+
+**Compact Instructions 节：** 在 CLAUDE.md 中加 `## Compact Instructions` 节，控制上下文压缩时保留什么。
+
+---
+
+## 六、权限系统
+
+### 权限模式（Shift+Tab 切换）
+
+|模式|说明|
+|---|---|
+|**Normal**（默认）|每次操作前询问|
+|**Auto-Accept** (`⏵⏵`)|文件操作自动批准，Bash 命令仍需确认|
+|**Plan Mode** (`⏸`)|只分析不执行，Claude 会先制定计划再等你确认|
+|**bypassPermissions**|完全跳过所有权限提示（仅在隔离环境中使用）|
+
+启动时指定模式：
+
+```bash
+claude --permission-mode plan
+```
+
+### 权限规则配置（`.claude/settings.json`）
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test *)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Bash(curl *)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  }
+}
+```
+
+规则格式：`Tool` 或 `Tool(specifier)`，支持 glob 通配符。
+
+### 配置层级（高→低）
+
+```
+Managed（企业管控）> 用户设置 > 项目设置 > 本地设置
+```
+
+---
+
+## 七、扩展系统
+
+### 扩展功能对比
+
+|功能|作用|加载方式|适用场景|
+|---|---|---|---|
+|**CLAUDE.md**|持久上下文|每次会话自动加载|项目约定、固定规则|
+|**Skills**|可复用知识/工作流|按需 or 手动 `/skill-name`|可重用的流程和知识|
+|**Subagents**|独立上下文的 AI 子代理|Claude 自动委托或手动调用|隔离复杂任务|
+|**Hooks**|自动化 shell 脚本|特定事件触发|格式化、lint、通知|
+|**MCP**|外部服务连接|配置后可用|Jira、Figma、数据库等|
+|**Plugins**|打包上述所有扩展|从 marketplace 安装|团队共享、批量配置|
+
+---
+
+## 八、Skills（技能）
+
+Skills 是可复用的提示词 + 工作流，创建后用 `/skill-name` 调用，或由 Claude 自动识别触发。
+
+### 创建 Skill
+
+在 `~/.claude/skills/explain-code/SKILL.md`（全局）或 `.claude/skills/xxx/SKILL.md`（项目级）创建：
 
 ```markdown
-# 我的个人全局偏好
-- 回复时使用中文
-- 代码注释用英文
-- 优先使用函数式写法
-- 提交信息使用 Conventional Commits 格式
-- 测试框架首选 Vitest
+---
+name: explain-code
+description: Explains code with visual diagrams. Use when explaining how code works.
+---
+
+When explaining code, always include:
+1. Start with an analogy
+2. Draw an ASCII diagram
+3. Walk through step-by-step
+4. Highlight a common gotcha
 ```
+
+- `name` → 成为 `/explain-code` 命令
+- `description` → Claude 判断何时自动触发
+- 设 `disable-model-invocation: true` → 仅手动调用，不占 context
 
 ---
 
-### 📂 子目录（`frontend/CLAUDE.md`、`backend/CLAUDE.md` 等）
+## 九、Subagents（子代理）
 
-同样是手动在对应子目录创建：
+Subagents 是独立的 AI 助手，拥有**独立上下文**、**定制 system prompt** 和**专属工具权限**。
 
-```bash
-# 在 frontend 子目录创建
-touch your-project/frontend/CLAUDE.md
+### 内置子代理
 
-# 在 backend 子目录创建
-touch your-project/backend/CLAUDE.md
-```
+|代理|模型|用途|
+|---|---|---|
+|Explore|Haiku|只读搜索和代码分析|
+|Research|Sonnet|Plan Mode 时收集上下文|
+|statusline-setup|Sonnet|配置状态栏|
+|Claude Code Guide|Haiku|回答 Claude Code 使用问题|
 
-在 monorepo 中，Claude Code 会从你当前工作目录向上遍历整个目录树，加载沿途找到的所有 CLAUDE.md。比如你在 `packages/web/` 目录运行 Claude Code，它会同时加载根目录的 `CLAUDE.md` 和 `packages/web/CLAUDE.md`。
+### 自定义子代理
 
-> ⚠️ **注意一个已知问题**：子目录的 CLAUDE.md 并不是在启动时就加载，而是只有当 Claude 实际读取到该子目录下的文件时，才会触发加载对应的 CLAUDE.md。 所以不要期望子目录规则在 session 一开始就生效。
-
----
-
-### 💡 一个更优雅的替代方案：`@import` 语法
-
-你可以在项目根目录的 CLAUDE.md 中，用 `@~/.claude/CLAUDE.md` 语法显式引入全局个人设置，避免重复维护。
+在 `~/.claude/agents/`（全局）或 `.claude/agents/`（项目级）创建 `.md` 文件：
 
 ```markdown
-# 项目根目录的 CLAUDE.md
-@~/.claude/CLAUDE.md   ← 引入全局个人偏好
+---
+name: security-reviewer
+description: Reviews code for security vulnerabilities
+tools: Read, Grep, Glob, Bash
+model: opus
+---
 
-## 项目专属规则
-- 使用 Next.js App Router
-- 数据库用 Drizzle ORM
+You are a senior security engineer. Review code for:
+- Injection vulnerabilities
+- Authentication flaws
+- Secrets in code
+- Insecure data handling
+
+Provide specific line references and suggested fixes.
 ```
 
-这样就形成了一个清晰的分层结构：个人偏好统一维护在全局文件里，项目规则只写项目独有的内容。
+**触发方式：**
 
+```
+"Use a subagent to review this code for security issues."
+```
+
+**何时用 Subagents vs Skills：**
+
+- 任务输出量大、不想污染主上下文 → **Subagent**
+- 需要强制限制工具权限 → **Subagent**
+- 可复用的提示/工作流，在主对话中执行 → **Skill**
+
+---
+
+## 十、Hooks（自动化钩子）
+
+Hooks 在 Claude Code 生命周期的特定节点自动执行 shell 命令，**强制执行、不可跳过**（不同于 CLAUDE.md 的建议性指令）。
+
+### 主要事件
+
+|事件|触发时机|
+|---|---|
+|`PreToolUse`|工具调用前（可 allow/deny/ask）|
+|`PostToolUse`|工具调用后|
+|`Notification`|Claude 等待用户输入时|
+|`SessionEnd`|会话结束时|
+|`ConfigChange`|配置文件被修改时|
+
+### 配置示例
+
+```json
+// ~/.claude/settings.json
+{
+  "hooks": {
+    "Notification": [{
+      "matcher": "",
+      "hooks": [{
+        "type": "command",
+        "command": "osascript -e 'display notification \"Claude needs input\" with title \"Claude Code\"'"
+      }]
+    }],
+    "PostToolUse": [{
+      "matcher": "Edit",
+      "hooks": [{
+        "type": "command",
+        "command": "npm run lint --fix"
+      }]
+    }]
+  }
+}
+```
+
+**让 Claude 帮你写 Hook：**
+
+```
+"Write a hook that runs eslint after every file edit"
+"Write a hook that blocks writes to the migrations folder"
+```
+
+---
+
+## 十一、MCP（Model Context Protocol）
+
+MCP 是连接外部服务的开放标准，让 Claude 可操作 Jira、Figma、数据库、Slack 等。
+
+```bash
+claude mcp add    # 添加 MCP 服务器
+/mcp              # 查看当前 MCP 配置及上下文消耗
+```
+
+**支持的集成示例：** Google Drive、Jira、Figma、Notion、数据库、自定义 API
+
+MCP 工具在 Hooks 中的命名格式：`mcp__<server>__<tool>`
+
+---
+
+## 十二、常用命令速查
+
+### 内置斜杠命令
+
+|命令|说明|
+|---|---|
+|`/init`|生成初始 CLAUDE.md|
+|`/compact`|压缩上下文（可附加焦点：`/compact focus on API changes`）|
+|`/context`|查看上下文使用情况|
+|`/permissions`|查看和管理权限规则|
+|`/hooks`|浏览当前 Hook 配置|
+|`/mcp`|查看 MCP 服务器状态|
+|`/model`|切换模型（sonnet/opus/haiku）|
+|`/agents`|管理子代理|
+|`/plugin`|浏览插件市场|
+|`/clear`|清除会话|
+|`/rename`|重命名当前会话|
+|`/rewind`|回退到上一个检查点|
+|`/bug`|报告 Bug|
+|`/btw`|在不占历史的情况下快速提问|
+
+### 快捷键
+
+|快捷键|功能|
+|---|---|
+|`Shift+Tab`|切换权限模式（Normal → Auto-Accept → Plan）|
+|`Ctrl+R`|搜索提示历史|
+|`Ctrl+G`|在编辑器中打开当前计划|
+|`Esc × 2`|回退到上一个检查点|
+|`Ctrl+O`|进入 verbose 模式（显示详细工具输出）|
+
+### CLI 标志
+
+```bash
+claude -p "your prompt"                   # headless 非交互模式
+claude --permission-mode plan             # 以 Plan 模式启动
+claude --model opus                       # 指定模型
+claude --dangerously-skip-permissions     # 跳过权限（仅沙箱环境）
+claude --agent my-agent                   # 以指定子代理启动
+claude --name "session name"              # 命名会话
+```
+
+---
+
+## 十三、上下文管理
+
+- 上下文满时 Claude 自动压缩：优先清除旧工具输出，再摘要对话
+- 早期对话中的详细指令可能丢失 → **重要规则写进 CLAUDE.md**
+- MCP 服务器会消耗大量上下文 → 用 `/mcp` 检查
+- Skills 默认只加载描述，实际内容按需加载
+- Subagents 拥有独立上下文，不占主对话 context
+
+---
+
+## 十四、安全机制
+
+- **Checkpoints（检查点）**：每次编辑文件前自动快照，随时用 `/rewind` 或 `Esc×2` 回退
+- **Checkpoints 保留 30 天**
+- **三种回退模式**：仅回退对话 / 仅回退代码 / 两者都回退
+- **Git Worktrees**：子代理可在独立 worktree 中并行工作，互不冲突
+- 建议搭配 **版本控制系统（Git）** 使用，检查点不替代 Git
+
+---
+
+## 十五、最佳实践
+
+### 提示技巧
+
+- 像和高级工程师对话一样提问，不要过度简化
+- 浏览新代码库时，直接问"这个模块怎么运行的"而不是自己读
+- 粘贴错误信息让 Claude 定位根因
+- 用 `cat error.log | claude -p "分析这些日志"` 管道传输数据
+- 给 Claude 文档和 API 参考的 URL
+- 告诉 Claude 用 `gh`、`aws`、`gcloud` 等 CLI 工具操作外部服务
+
+### 提示词策略
+
+- 任务清晰具体时 → 直接给指令
+- 复杂多文件改动 → 先用 **Plan Mode** 让 Claude 制定计划再确认执行
+- 探索性任务 → 可以故意用模糊提示，观察 Claude 的理解再纠正
+- 注意总结"哪些提示方式效果好"，形成个人最佳实践
+
+### 工作流配置建议（从简到繁）
+
+1. 先运行 `/init` 生成 CLAUDE.md，逐步完善
+2. 常用命令 → 写成 Skill
+3. 需要外部服务 → 接入 MCP
+4. 需要每次必须执行的动作 → 配置 Hooks
+5. 复杂隔离任务 → 定义 Subagents
+6. 团队共享配置 → 打包成 Plugin
+
+---
+
+## 十六、Unix 哲学集成
+
+Claude Code 遵循 Unix 管道哲学，可与其他工具任意组合：
+
+```bash
+# 分析日志并通知
+tail -200 app.log | claude -p "发现异常请通过 Slack 告知"
+
+# CI 自动翻译
+claude -p "将新增字符串翻译成法语并发起 PR"
+
+# 批量安全审查
+git diff main --name-only | claude -p "检查这些改动文件的安全问题"
+```
+
+---
+
+## 十七、模型选择
+
+|别名|实际模型|适用场景|
+|---|---|---|
+|`sonnet`（默认）|Claude Sonnet 4.x|日常编码，性价比最高|
+|`opus`|Claude Opus 4.x|复杂推理、架构设计|
+|`haiku`|Claude Haiku 4.x|快速响应、低延迟任务|
+
+切换：`/model` 命令或 `--model` 启动参数
+
+---
+
+_文档基于 Claude Code 官方文档整理，最后更新：2026年3月_
