@@ -44,17 +44,17 @@ npx @google/gemini-cli
 
 ### 会话与历史
 
-|命令|说明|
-|---|---|
-|`/resume` / `/chat`|打开会话浏览器，恢复历史会话（自动保存，无需手动操作）|
-|`/chat save <tag>`|手动保存当前对话为标记检查点|
-|`/chat resume <tag>`|恢复指定标记的对话|
-|`/chat share [file]`|导出对话为 `.md` 或 `.json` 文件|
-|`/chat delete <tag>`|删除指定检查点|
-|`/restore [tool_call_id]`|撤销工具执行前的文件改动（需开启 checkpointing）|
-|`/rewind`|回退对话历史并可选择撤销文件变更（快捷键：连按两次 `Esc`）|
-|`/clear`|清屏（快捷键：`Ctrl+L`）|
-|`/compress`|将上下文压缩为摘要，节省 Token|
+| 命令                        | 说明                               |
+| ------------------------- | -------------------------------- |
+| `/resume` / `/chat`       | 打开会话浏览器，恢复历史会话（自动保存，无需手动操作）      |
+| `/chat save <tag>`        | 手动保存当前对话为标记检查点                   |
+| `/chat resume <tag>`      | 恢复指定标记的对话                        |
+| `/chat share [file]`      | 导出对话为 `.md` 或 `.json` 文件         |
+| `/chat delete <tag>`      | 删除指定检查点                          |
+| `/restore [tool_call_id]` | 撤销工具执行前的文件改动（需开启 checkpointing）  |
+| `/rewind`                 | 回退对话历史并可选择撤销文件变更（快捷键：连按两次 `Esc`） |
+| `/clear`                  | 清屏（快捷键：`Ctrl+L`）                 |
+| `/compress`               | 将上下文压缩为摘要，节省 Token               |
 
 ### 模型与配置
 
