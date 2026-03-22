@@ -69,13 +69,13 @@ npx @google/gemini-cli
 
 ### 内存与上下文
 
-|命令|说明|
-|---|---|
-|`/memory add <text>`|向 AI 记忆中添加内容|
-|`/memory show`|查看当前加载的所有 `GEMINI.md` 内容|
-|`/memory list`|列出所有 `GEMINI.md` 文件路径|
-|`/memory refresh`|重新加载所有 `GEMINI.md` 文件|
-|`/init`|分析当前项目目录，自动生成 `GEMINI.md`|
+| 命令                   | 说明                        |
+| -------------------- | ------------------------- |
+| `/memory add <text>` | 向 AI 记忆中添加内容              |
+| `/memory show`       | 查看当前加载的所有 `GEMINI.md` 内容  |
+| `/memory list`       | 列出所有 `GEMINI.md` 文件路径     |
+| `/memory refresh`    | 重新加载所有 `GEMINI.md` 文件     |
+| `/init`              | 分析当前项目目录，自动生成 `GEMINI.md` |
 
 ### 工具与扩展
 
@@ -110,16 +110,16 @@ npx @google/gemini-cli
 
 ### 其他实用命令
 
-|命令|说明|
-|---|---|
-|`/stats session`|查看当前会话统计（工具调用次数、时长等）|
-|`/stats model`|查看 Token 用量和配额|
-|`/copy`|复制最后一条输出到剪贴板|
-|`/shells`|查看/管理后台运行的 Shell 进程|
-|`/bug <描述>`|快速提交 GitHub Issue|
-|`/upgrade`|升级账号套餐|
-|`/about`|查看版本信息|
-|`/quit` / `/exit`|退出|
+| 命令                | 说明                   |
+| ----------------- | -------------------- |
+| `/stats session`  | 查看当前会话统计（工具调用次数、时长等） |
+| `/stats model`    | 查看 Token 用量和配额       |
+| `/copy`           | 复制最后一条输出到剪贴板         |
+| `/shells`         | 查看/管理后台运行的 Shell 进程  |
+| `/bug <描述>`       | 快速提交 GitHub Issue    |
+| `/upgrade`        | 升级账号套餐               |
+| `/about`          | 查看版本信息               |
+| `/quit` / `/exit` | 退出                   |
 
 ### 自定义命令
 
