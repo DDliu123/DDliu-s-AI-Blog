@@ -137,7 +137,7 @@ git commit -m "feat: 初始化项目，提交核心代码"
 git remote add origin 你的GitHub仓库地址
 ```
 
-- 示例：`git remote add origin https://github.com/zhangsan/my-code-project.git`
+- 示例：`git remote add origin https://github.com/DDliu123/ShopVault.git
     
 - 命令说明：`origin`是远程仓库的默认别名，行业通用，不建议修改。
     
