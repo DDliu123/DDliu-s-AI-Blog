@@ -38,7 +38,7 @@
       "Remove-Partition"
     ]
   },
-  "permissionMode": "normal",
+  "permissionMode": "yolo",
   "model": "kimi-k2-turbo-preview",
   "thinkingBudget": "off",
   "enableAutoTitleGeneration": true,
