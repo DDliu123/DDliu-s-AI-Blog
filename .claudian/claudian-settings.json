@@ -1,20 +1,24 @@
 {
   "userName": "DDliu",
   "permissionMode": "yolo",
-  "model": "kimi-k2-turbo-preview",
+  "model": "kimi-k2.6",
   "thinkingBudget": "off",
   "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
-  "titleGenerationModel": "kimi-k2-turbo-preview",
+  "titleGenerationModel": "",
   "excludedTags": [],
   "mediaFolder": "",
   "systemPrompt": "请优先搜索使用skills来执行命令",
   "persistentExternalContextPaths": [],
   "sharedEnvironmentVariables": "",
   "envSnippets": [],
-  "customContextLimits": {},
-  "customModelAliases": {},
+  "customContextLimits": {
+    "kimi-k2-turbo-preview": 256000
+  },
+  "customModelAliases": {
+    "kimi-k2-turbo-preview": "kimi"
+  },
   "keyboardNavigation": {
     "scrollUpKey": "w",
     "scrollDownKey": "s",
@@ -27,7 +31,7 @@
       "safeMode": "acceptEdits",
       "cliPath": "",
       "cliPathsByHost": {
-        "device:016049ea-3ab4-472e-9870-ef99b432b14f": "C:\\Users\\DDliu\\.trae\\extensions\\anthropic.claude-code-2.1.78-win32-x64\\resources\\native-binary\\claude.exe"
+        "device:016049ea-3ab4-472e-9870-ef99b432b14f": "C:\\Users\\DDliu\\AppData\\Local\\nvm\\node_global\\node_modules\\@anthropic-ai\\claude-code\\cli.js"
       },
       "loadUserSettings": true,
       "enableChrome": false,
@@ -36,8 +40,8 @@
       "enableSonnet1M": false,
       "customModels": "",
       "lastModel": "haiku",
-      "environmentVariables": "ANTHROPIC_BASE_URL=\"https://api.moonshot.cn/anthropic\"\nANTHROPIC_AUTH_TOKEN=\"sk-nbNgpyrvlXbwXhsDUucEN5IUkceHWzB8CyDmscgKhfKswXF8\"\nANTHROPIC_MODEL=\"kimi-k2-turbo-preview\"",
-      "environmentHash": "ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic|ANTHROPIC_MODEL=kimi-k2-turbo-preview"
+      "environmentVariables": "ANTHROPIC_BASE_URL=\"https://api.moonshot.cn/v1\"\nANTHROPIC_AUTH_TOKEN=\"sk-iAF20eEnK0FDY8wLzLPWyadUoVpimDekK1oImoxskeEHm9ri\"\nANTHROPIC_MODEL=\"kimi-k2.6\"",
+      "environmentHash": "ANTHROPIC_BASE_URL=https://api.moonshot.cn/v1|ANTHROPIC_MODEL=kimi-k2.6"
     },
     "codex": {
       "enabled": true,
@@ -82,15 +86,20 @@
   },
   "settingsProvider": "claude",
   "savedProviderModel": {
-    "claude": "kimi-k2-turbo-preview"
+    "claude": "kimi-k2.6",
+    "codex": "gpt-5.4-mini"
   },
   "savedProviderEffort": {
-    "claude": "high"
+    "claude": "high",
+    "codex": "medium"
   },
-  "savedProviderServiceTier": {},
+  "savedProviderServiceTier": {
+    "codex": "default"
+  },
   "savedProviderThinkingBudget": {},
   "savedProviderPermissionMode": {
-    "claude": "yolo"
+    "claude": "yolo",
+    "codex": "yolo"
   },
   "lastCustomModel": "kimi-k2-turbo-preview",
   "maxTabs": 3,
