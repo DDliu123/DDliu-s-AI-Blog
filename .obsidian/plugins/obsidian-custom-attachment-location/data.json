@@ -1,5 +1,5 @@
 {
-  "attachmentFolderPath": "./assets/${noteFileName}",
+  "attachmentFolderPath": "${vaultRoot}/Pictures",
   "attachmentRenameMode": "All",
   "collectAttachmentUsedByMultipleNotesMode": "Skip",
   "collectedAttachmentFileName": "",
@@ -14,7 +14,7 @@
   "generatedAttachmentFileName": "file-${date:{momentJsFormat:'YYYYMMDDHHmmssSSS'}}",
   "includePaths": [],
   "jpegQuality": 0.8,
-  "markdownUrlFormat": "assets/${noteFileName}/${generatedAttachmentFileName}",
+  "markdownUrlFormat": "Pictures/${generatedAttachmentFileName}",
   "moveAttachmentToProperFolderUsedByMultipleNotesMode": "CopyAll",
   "renamedAttachmentFileName": "",
   "shouldDeleteOrphanAttachments": false,
