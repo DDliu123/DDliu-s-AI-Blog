@@ -3,5 +3,5 @@
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
   "uriCallbacks": true,
-  "attachmentFolderPath": "Pictures"
+  "attachmentFolderPath": "./附件"
 }
