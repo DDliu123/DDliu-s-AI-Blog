@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">先想交付物</title>
+  <desc id="desc">小黑把模糊问题称重，最后塞进一个写着文件的抽屉。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:31px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:25px;fill:#111}
+    .redText{fill:#d94a38}.blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="thin" d="M115 247 C147 206,207 211,231 249 C270 236,312 257,319 296 C346 308,355 349,332 376 C281 364,237 381,191 369 C156 360,120 367,94 339 C68 312,81 267,115 247 Z"/>
+  <text class="text" x="143" y="312">怎么问？</text>
+  <path class="red" d="M130 391 C168 416,219 414,258 397"/>
+  <text class="note redText" x="146" y="443">一团雾</text>
+
+  <path d="M462 284 C447 245,476 218,514 226 C551 234,568 267,553 304 C540 339,489 333,462 284 Z" fill="#111"/>
+  <circle cx="492" cy="264" r="6" fill="#fff"/>
+  <circle cx="523" cy="268" r="6" fill="#fff"/>
+  <path class="thin" d="M477 329 C468 361,466 390,452 424"/>
+  <path class="thin" d="M526 329 C533 363,538 394,554 426"/>
+  <path class="thin" d="M462 295 C414 302,384 324,363 358"/>
+  <path class="thin" d="M552 289 C592 302,616 330,632 368"/>
+
+  <path class="line" d="M349 440 C428 423,532 421,638 442"/>
+  <path class="line" d="M493 352 L493 440"/>
+  <path class="line" d="M383 440 C397 486,430 510,472 502"/>
+  <path class="line" d="M608 442 C599 491,564 516,520 504"/>
+  <path class="thin" d="M367 356 C407 349,450 352,493 365"/>
+  <path class="thin" d="M493 365 C541 349,587 346,634 358"/>
+  <text class="note" x="377" y="545">问题</text>
+  <text class="note" x="552" y="548">结果</text>
+
+  <path class="orange" d="M674 363 C731 346,773 351,818 382"/>
+  <path class="orange" d="M802 349 L829 391 L780 390"/>
+
+  <path class="line" d="M854 219 C923 203,1022 210,1082 232 L1069 472 C1000 454,919 455,846 477 Z"/>
+  <path class="thin" d="M874 279 C924 270,1001 273,1053 289"/>
+  <path class="thin" d="M870 343 C922 335,993 337,1054 352"/>
+  <path class="thin" d="M865 407 C927 396,1003 401,1050 415"/>
+  <text class="text" x="900" y="317">Excel</text>
+  <text class="text" x="910" y="379">PRD</text>
+  <text class="text" x="907" y="443">网页</text>
+  <path class="blue" d="M879 185 C923 168,992 168,1040 188"/>
+  <text class="note blueText" x="876" y="169">先定交付物</text>
+</svg>

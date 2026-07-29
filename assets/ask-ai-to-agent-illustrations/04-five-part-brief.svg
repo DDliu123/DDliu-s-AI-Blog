@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">五项任务说明</title>
+  <desc id="desc">小黑把目标、材料、规则、交付物、验收五块木片塞进一个任务夹。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:30px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:24px;fill:#111}
+    .redText{fill:#d94a38}.blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="line" d="M601 146 C692 128,832 134,930 159 L912 535 C809 513,684 509,574 532 Z"/>
+  <path class="thin" d="M628 198 C704 183,804 186,888 207"/>
+  <path class="thin" d="M620 273 C705 258,804 263,884 280"/>
+  <path class="thin" d="M616 350 C696 333,799 338,881 358"/>
+  <path class="thin" d="M612 429 C697 410,799 416,874 436"/>
+  <text class="note" x="643" y="243">目标</text>
+  <text class="note" x="644" y="319">材料</text>
+  <text class="note" x="644" y="395">规则</text>
+  <text class="note" x="645" y="474">交付物</text>
+  <text class="note blueText" x="792" y="494">验收</text>
+
+  <path d="M359 300 C342 258,374 225,418 235 C461 245,476 282,457 322 C439 360,384 352,359 300 Z" fill="#111"/>
+  <circle cx="391" cy="279" r="6" fill="#fff"/>
+  <circle cx="424" cy="284" r="6" fill="#fff"/>
+  <path class="thin" d="M377 347 C366 380,362 412,346 448"/>
+  <path class="thin" d="M431 347 C444 379,452 412,470 445"/>
+  <path class="thin" d="M458 304 C510 294,545 282,595 260"/>
+  <path class="thin" d="M360 319 C320 342,296 367,277 404"/>
+  <path class="orange" d="M494 247 C527 225,562 215,597 211"/>
+  <path class="orange" d="M578 188 L606 211 L570 229"/>
+
+  <path class="line" d="M180 176 C239 160,317 166,374 190 L357 253 C303 239,249 239,197 259 Z"/>
+  <text class="note" x="219" y="222">说清楚</text>
+  <path class="blue" d="M196 448 C242 430,301 433,346 456"/>
+  <text class="note blueText" x="205" y="505">别让它猜</text>
+  <path class="red" d="M942 105 C969 122,985 143,992 171"/>
+  <path class="red" d="M995 102 C972 124,958 146,953 176"/>
+  <text class="note redText" x="921" y="91">缺一块就歪</text>
+</svg>

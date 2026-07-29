@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">从聊天框到 Agent</title>
+  <desc id="desc">小黑把材料塞进手摇机器，从聊天建议变成可用成品。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:32px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:26px;fill:#111}
+    .redText{fill:#d94a38}
+    .blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="line" d="M128 182 C120 146,154 124,207 129 L343 132 C390 132,418 158,410 195 L393 278 C385 314,354 331,306 324 L172 318 C128 315,106 288,115 250 Z"/>
+  <path class="thin" d="M191 321 C187 352,176 374,151 390"/>
+  <path class="thin" d="M283 326 C282 357,291 377,316 394"/>
+  <path class="thin" d="M169 187 C219 174,273 174,354 186"/>
+  <path class="thin" d="M164 238 C220 250,285 249,355 235"/>
+  <text class="text" x="202" y="213">聊天框</text>
+  <path class="red" d="M237 355 C262 365,294 363,319 380 C296 398,255 403,225 386 Z"/>
+  <text class="note redText" x="243" y="390">建议</text>
+
+  <path class="orange" d="M455 252 C519 231,574 230,633 250"/>
+  <path class="orange" d="M617 224 L646 256 L603 265"/>
+
+  <path class="line" d="M692 190 C757 174,866 178,942 192 C969 198,983 219,980 250 L965 390 C961 421,938 439,898 437 L713 428 C673 426,650 403,654 370 L669 230 C672 209,680 196,692 190 Z"/>
+  <path class="thin" d="M690 251 C768 271,856 272,962 252"/>
+  <path class="thin" d="M673 354 C752 334,865 336,973 360"/>
+  <path class="orange" d="M748 162 C782 130,838 132,868 164"/>
+  <path class="orange" d="M853 145 L874 169 L841 177"/>
+
+  <path class="thin" d="M711 120 C751 110,794 108,831 119 L822 171 C775 160,740 161,697 172 Z"/>
+  <text class="note" x="732" y="106">材料</text>
+
+  <path d="M772 295 C760 265,782 242,813 248 C843 255,855 282,845 312 C835 344,793 337,772 295 Z" fill="#111"/>
+  <circle cx="796" cy="282" r="6" fill="#fff"/>
+  <circle cx="825" cy="286" r="6" fill="#fff"/>
+  <path class="thin" d="M787 337 C782 365,783 386,776 410"/>
+  <path class="thin" d="M823 337 C832 365,833 390,846 412"/>
+  <path class="thin" d="M846 296 C879 293,897 300,909 319"/>
+  <circle class="line" cx="921" cy="329" r="24"/>
+  <path class="blue" d="M742 390 C765 378,795 377,825 392"/>
+  <text class="note blueText" x="718" y="470">检查</text>
+
+  <path class="line" d="M997 318 C1047 307,1082 314,1115 340 L1102 415 C1057 402,1028 404,985 421 Z"/>
+  <path class="thin" d="M1003 354 C1038 344,1074 347,1103 363"/>
+  <text class="text" x="1011" y="397">成品</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">从材料到 PRD 和 Demo</title>
+  <desc id="desc">小黑在奇怪工位里把会议纪要、旧 PRD、反馈和截图加工成需求文档、Demo 和待确认问题。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:29px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:23px;fill:#111}
+    .redText{fill:#d94a38}.blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="line" d="M426 150 C525 126,681 134,775 160 L757 493 C665 476,523 473,405 498 Z"/>
+  <path class="thin" d="M448 219 C526 199,653 205,743 226"/>
+  <path class="thin" d="M443 388 C536 369,649 373,744 395"/>
+  <circle class="line" cx="595" cy="309" r="68"/>
+  <path class="orange" d="M542 306 C579 278,625 278,657 311"/>
+  <path class="orange" d="M642 284 L665 318 L623 322"/>
+
+  <path d="M577 299 C564 264,590 238,627 247 C660 255,673 285,657 319 C643 350,599 343,577 299 Z" fill="#111"/>
+  <circle cx="603" cy="280" r="5.5" fill="#fff"/>
+  <circle cx="631" cy="284" r="5.5" fill="#fff"/>
+  <path class="thin" d="M590 343 C585 368,582 388,574 413"/>
+  <path class="thin" d="M635 343 C644 368,651 392,663 415"/>
+  <path class="thin" d="M657 308 C689 309,711 319,724 340"/>
+
+  <path class="thin" d="M100 176 C154 158,216 163,263 185 L250 248 C201 235,156 235,111 252 Z"/>
+  <path class="thin" d="M100 278 C154 260,216 265,263 287 L250 350 C201 337,156 337,111 354 Z"/>
+  <path class="thin" d="M100 380 C154 362,216 367,263 389 L250 452 C201 439,156 439,111 456 Z"/>
+  <path class="thin" d="M100 482 C154 464,216 469,263 491 L250 554 C201 541,156 541,111 558 Z"/>
+  <text class="note" x="126" y="218">会议纪要</text>
+  <text class="note" x="132" y="320">旧 PRD</text>
+  <text class="note" x="129" y="422">反馈</text>
+  <text class="note" x="132" y="524">截图</text>
+  <path class="orange" d="M286 340 C343 313,378 309,424 320"/>
+  <path class="orange" d="M405 296 L433 323 L394 337"/>
+
+  <path class="orange" d="M775 316 C832 292,879 291,925 314"/>
+  <path class="orange" d="M909 286 L937 319 L893 328"/>
+  <path class="line" d="M946 172 C1005 157,1077 162,1121 188 L1109 254 C1054 239,1002 239,955 260 Z"/>
+  <text class="note" x="986" y="219">PRD</text>
+  <path class="line" d="M942 311 C1001 293,1076 301,1120 326 L1105 395 C1052 379,1001 379,952 402 Z"/>
+  <text class="note" x="982" y="356">Demo</text>
+  <path class="line" d="M941 454 C999 436,1072 443,1117 468 L1100 535 C1050 521,998 520,951 543 Z"/>
+  <text class="note redText" x="971" y="500">待确认</text>
+  <path class="blue" d="M466 536 C551 517,655 520,735 542"/>
+  <text class="note blueText" x="506" y="589">人来做最后判断</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">挑适合交给 Agent 的任务</title>
+  <desc id="desc">小黑守着一个奇怪安检门，把重复、可检查、有文件的任务放进去，把高风险任务挡在外面。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:30px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:24px;fill:#111}
+    .redText{fill:#d94a38}.blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="line" d="M451 124 C517 110,633 111,704 127 L692 522 C626 505,524 504,443 524 Z"/>
+  <path class="thin" d="M476 178 C533 164,623 166,680 181"/>
+  <path class="thin" d="M478 452 C531 439,623 442,677 457"/>
+  <path class="orange" d="M532 215 C582 202,634 209,660 238 C630 263,568 266,519 248 Z"/>
+  <text class="note" x="532" y="244">可检查</text>
+  <path class="orange" d="M520 300 C568 285,628 289,667 319 C628 347,563 346,514 330 Z"/>
+  <text class="note" x="539" y="325">有文件</text>
+  <path class="orange" d="M521 386 C568 371,631 374,665 403 C622 430,560 429,515 412 Z"/>
+  <text class="note" x="540" y="410">重复做</text>
+
+  <path d="M364 311 C351 273,379 244,418 253 C454 262,468 292,454 329 C441 365,389 358,364 311 Z" fill="#111"/>
+  <circle cx="392" cy="291" r="6" fill="#fff"/>
+  <circle cx="423" cy="295" r="6" fill="#fff"/>
+  <path class="thin" d="M379 357 C370 387,367 417,353 450"/>
+  <path class="thin" d="M426 356 C436 388,442 416,456 449"/>
+  <path class="thin" d="M451 319 C486 316,508 302,527 276"/>
+  <path class="thin" d="M358 329 C324 343,299 363,280 392"/>
+  <text class="note" x="289" y="477">先筛一下</text>
+
+  <path class="orange" d="M713 321 C780 306,827 311,875 339"/>
+  <path class="orange" d="M859 308 L887 348 L839 348"/>
+  <path class="line" d="M891 245 C946 230,1014 235,1053 258 L1037 431 C978 413,929 418,879 441 Z"/>
+  <text class="text" x="910" y="329">交给</text>
+  <text class="text" x="927" y="370">Agent</text>
+
+  <path class="red" d="M147 184 C203 166,277 173,331 195 L311 269 C259 255,210 255,161 274 Z"/>
+  <text class="note redText" x="175" y="232">高风险判断</text>
+  <path class="red" d="M145 501 C205 478,278 483,336 509 L312 577 C257 561,205 562,158 580 Z"/>
+  <text class="note redText" x="181" y="548">直接付款</text>
+  <path class="red" d="M335 257 C390 253,428 264,457 286"/>
+  <path class="red" d="M316 510 C380 493,420 483,454 465"/>
+  <path class="red" d="M333 252 L349 276"/>
+  <path class="red" d="M329 276 L350 250"/>
+</svg>

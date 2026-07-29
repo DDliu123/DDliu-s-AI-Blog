@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">让错误容易被发现</title>
+  <desc id="desc">小黑拿放大镜检查一个有来源、数量和测试标记的文件，旁边有未确认出口。</desc>
+  <rect width="1200" height="675" fill="#fff"/>
+  <style>
+    .line{fill:none;stroke:#111;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .thin{fill:none;stroke:#111;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .orange{fill:none;stroke:#f28c28;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#d94a38;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .blue{fill:none;stroke:#2f7ed8;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+    .text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:30px;fill:#111}
+    .note{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;font-size:24px;fill:#111}
+    .redText{fill:#d94a38}.blueText{fill:#2f7ed8}
+  </style>
+
+  <path class="line" d="M391 126 C497 101,690 113,805 142 L785 547 C668 523,507 522,369 551 Z"/>
+  <path class="thin" d="M430 202 C515 183,666 188,760 212"/>
+  <path class="thin" d="M428 284 C511 265,660 270,754 291"/>
+  <path class="thin" d="M427 368 C511 349,659 355,748 374"/>
+  <text class="note" x="462" y="246">来源</text>
+  <text class="note" x="461" y="329">数量对上</text>
+  <text class="note" x="462" y="413">测试跑过</text>
+
+  <path d="M229 322 C211 280,244 247,287 257 C329 267,343 303,324 343 C306 381,252 373,229 322 Z" fill="#111"/>
+  <circle cx="260" cy="301" r="6" fill="#fff"/>
+  <circle cx="292" cy="306" r="6" fill="#fff"/>
+  <path class="thin" d="M247 368 C238 399,235 425,220 459"/>
+  <path class="thin" d="M298 368 C309 398,315 425,332 456"/>
+  <circle class="line" cx="373" cy="300" r="52"/>
+  <path class="line" d="M407 337 L474 409"/>
+  <path class="thin" d="M326 320 C306 335,302 356,313 378"/>
+
+  <path class="blue" d="M826 246 C879 228,935 232,977 258 L960 327 C909 313,870 313,820 335 Z"/>
+  <text class="note blueText" x="849" y="291">不确定</text>
+  <path class="orange" d="M785 397 C836 383,881 386,925 407"/>
+  <path class="orange" d="M908 380 L936 413 L892 421"/>
+  <path class="line" d="M940 363 C1003 344,1072 351,1110 381 L1092 476 C1034 457,987 461,932 487 Z"/>
+  <text class="note" x="963" y="418">人工复核</text>
+
+  <path class="red" d="M878 133 C919 120,971 123,1010 141"/>
+  <text class="note redText" x="889" y="111">别硬猜</text>
+  <path class="red" d="M862 153 L887 181"/>
+  <path class="red" d="M887 153 L862 181"/>
+  <path class="orange" d="M453 237 C482 226,522 229,548 246"/>
+  <path class="orange" d="M453 320 C493 308,534 310,573 329"/>
+  <path class="orange" d="M452 402 C485 391,527 394,557 412"/>
+</svg>
